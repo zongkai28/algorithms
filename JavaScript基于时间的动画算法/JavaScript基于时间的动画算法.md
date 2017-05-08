@@ -147,7 +147,6 @@
             }
             draw();
         }
-
         // update 和 draw 函数不变
         setInterval(loop, 1000 / fps);
     }
@@ -171,6 +170,8 @@
 ## 总结
 
 基于帧的动画算法会在帧率不同的情况下导致动画体验有较大的差异，所有动画都应该基于时间进行执行。而基于时间的动画算法要注意边缘时间的损失，最好采取积累时间，然后分固定片更新动画的方式。
+
+转自：https://github.com/livoras/blog/issues/8
 
 ## References
 
