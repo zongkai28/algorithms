@@ -59,6 +59,14 @@
 			return difference;
 		}
 		console.log("fn5",fn5(a,b));
+
+		//找出数组中不同差异的元素
+		function fn6(aArr,bArr){
+			let aSet = new Set(aArr);
+		    let bSet = new Set(bArr);
+		    return aArr.concat(bArr).filter(v => !aSet.has(v) || !bSet.has(v));
+		}
+		console.log("fn6",fn6(a,b));
 	</script>
 </head>
 <body>
