@@ -22,11 +22,11 @@
 		function fn2(aArr,bArr){
  		  var newArr=[];
  		  for (var i =0 ; i < aArr.length ; i++) {
-             for (var j =0 ; j < bArr.length ; j++) {
-             	if((bArr[j]==aArr[i])&&(newArr.indexOf(aArr[i])==-1)){
+         	for (var j =0 ; j < bArr.length ; j++) {
+         		if((bArr[j]==aArr[i])&&(newArr.indexOf(aArr[i])==-1)){
 					newArr.push(aArr[i]);
-             	}
-             }
+         		}
+         	}
  		  }
  		  return newArr;
 		}
