@@ -45,16 +45,16 @@
 		//方法二：A:  Array.prototype.indexOf()  filter
 		//整体思路就是索引不是第一个索引，说明是重复值。
 		function uniqueTwoA(arr) {
-		   //var new_arrary = arr.filter(callback[, thisArg]);  
+		   //var new_arrary = arr.filter(callback[, thisArg]);
 		   //其中 callback 用来测试数组的每个元素的函数。调用时使用参数 element, index, array。
 		   //返回true表示保留该元素（通过测试），false则不保留。thisArg可选，执行 callback 时的用于 this 的值。
 		   //item 表示数组中的每个元素，index 是每个元素的出现位置。
 		   //indexOf 返回 String 对象内第一次出现子字符串的字符位置。如果没有找到子字符串，则返回 -1。
-		   return arr.filter(function(item, index){ 
+		   return arr.filter(function(item, index){
 		       return arr.indexOf(item) == index; // indexOf 返回第一个索引值
 		   });
 		}
-		console.log("uniqueTwoA：",uniqueTwoA(arrData));// [1, 2, 5, 3] 
+		console.log("uniqueTwoA：",uniqueTwoA(arrData));// [1, 2, 5, 3]
 
 		//方法二：B:  Array.prototype.indexOf()  forEach
 		function uniqueTwoB(arr) {
@@ -68,10 +68,10 @@
 		}
 		console.log("uniqueTwoB：",uniqueTwoB(arrData));// [1, 2, 5, 3]
 
-		//方法三：A  Array.prototype.sort() 
+		//方法三：A  Array.prototype.sort()
 		//整体思路就是 先进行排序，然后比较相邻元素。
 		function uniqueThreeA(arr) {
-		    var newArr = [];                  
+		    var newArr = [];
 		    arr.sort();
 		    for(var i = 0; i < arr.length; i++){
 		        if( arr[i] !== arr[i+1]){
@@ -82,18 +82,18 @@
 		}
 		console.log("uniqueThreeA：",uniqueThreeA(arrData));// [1, 2, 3, 5]
 
-		//方法三：B  Array.prototype.sort() 
+		//方法三：B  Array.prototype.sort()
 		//整体思路就是 先进行排序，将原数组中的第一个元素复制给结果数组，
 		//然后检查原数组中的第 i 个元素 与 结果数组中的最后一个元素是否相同。
 		function uniqueThreeB(arr) {
-		  var newArr = [];                  
+		  var newArr = [];
 		  arr.sort();
 		  var newArr = [arr[0]];
 		  for(var i = 1; i < arr.length; i++){
 		     if(arr[i] !== newArr[newArr.length - 1]){
 		     	newArr.push(arr[i]);
 		     }
-		  }    
+		  }
 		  return newArr;
 		}
 		console.log("uniqueThreeB：",uniqueThreeB(arrData));// [1, 2, 3, 5]
@@ -127,7 +127,7 @@
 		    var tmpKey;
 		    for(var i=0; i<arr.length; i++){
 		        tmpKey = typeof arr[i] + arr[i];
-		        console.log(tmpKey); 
+		        console.log(tmpKey);
 		        if(!tmp[tmpKey]){
 		            tmp[tmpKey] = 1;
 		            newArr.push(arr[i]);
@@ -154,15 +154,15 @@
 		    return newArr;
 		}
 		console.log("uniqueFourC：",uniqueFourC(arrData));// [1, 2, 3, 5]
-		//看起来和uniqueFourB方法 console 的没有区别，但是将 测试用例 换成一个 对象  
+		//看起来和uniqueFourB方法 console 的没有区别，但是将 测试用例 换成一个 对象
 		//var arr  = [{xiaoming:23,xiaoqing:45},{xiaoming:24,xiaoqing:45}]; 时，
 		//可以看到 console 结果 object{"xiaoming":23,"xiaoqing":45}object{"xiaoming":24,"xiaoqing":45}
 
 		//补充 es6 中的方法以及对于 null,NaN,undefined,{} 等类型的去重。
-		//es6方法一： Map 
+		//es6方法一： Map
 		//Map 是一种新的数据类型，类似于对象，也是键值对的集合，
 		//但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
-		//可以把它想象成key类型没有限制的对象。它的存取使用单独的get()、set()接口。 
+		//可以把它想象成key类型没有限制的对象。它的存取使用单独的get()、set()接口。
 		function uniqueES6one(arr) {
 		    var newArr = [];
 		    var len = arr.length;
@@ -184,7 +184,8 @@
 		function uniqueES6two(arr){
 	     	var set = new Set(arr);
 	     	return Array.from(set);
-	    }
+				// 简写为： return Array.from(new Set(array));
+	  }
 		console.log("uniqueES6two：",uniqueES6two(arrData));// [1, 2, 3, 5]
 
 		//es6方法三：Array.prototype.includes()
@@ -201,6 +202,6 @@
 	</script>
 </head>
 <body>
-	
+
 </body>
 </html>
